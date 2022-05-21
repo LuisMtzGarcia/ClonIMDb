@@ -1,6 +1,19 @@
 from django.db import models
 from decimal import Decimal
 
+class Genero(models.model):
+    """Un genero de pelicula."""
+
+    nombre = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = 'generos'
+
+    def __str__(self):
+        """Devuelve una representacion en cadena del genero."""
+
+        return f"{self.nombre}"
+
 class Pelicula(models.Model):
     """Una pelicula con sus caracteristicas y portada."""
 
@@ -11,6 +24,8 @@ class Pelicula(models.Model):
     #   Indiana Jones and the Kingdom of the Crystal Skull (50 caracteres)
     #   Borat: Cultural Learnings of America for Make 
     #       Benefit Glorious Nation of Kazakhstan (83 caracteres)
+
+    genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
 
     anio = models.PositiveSmallIntegerField()
     # El rango de este campo es de 0 a 32767.
