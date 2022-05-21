@@ -30,13 +30,30 @@ class Pelicula(models.Model):
     # Obtiene el rating diviediendo la suma de los votos entre el numero de votos.
     # Castea el resultado a Decimal para trabajar con el mas facilmente.
 
-    #POR HACER
-    """
-    reviews = 
-    """
-
     def __str__(self):
         """Regresa una representacion en cadena del 'titulo' del modelo."""
 
         return self.titulo
+
+
+class Review(models.Model):
+    """Una review de un usuario para una pelicula."""
+
+    usuario = models.CharField(max_length=50) 
+    # Placeholder en lo que aniado los usuarios.
+
+    pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
+
+    texto = models.TextField()
+    # No tiene un limite actual, pero considerare un limite.
+
+    def __str__(self):
+        """Regresa una representacion en cadena de la review."""
+
+        # En caso de que la review supere los 100 caracteres, aniade 
+        # puntos suspensivos.
+        if len(self.texto > 100):
+            return f"{self.usuario}: {self.texto[:100]}..."
+        else:
+            return f"{self.usuario}: {self.texto}"
    
