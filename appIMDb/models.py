@@ -27,7 +27,10 @@ class Pelicula(models.Model):
     def __str__(self):
         """Regresa una representacion en cadena del 'titulo' del modelo."""
 
-        return self.titulo
+        if len(self.titulo) > 50:
+            return f"{self.titulo[:50]}..."
+        else:
+            return f"{self.titulo}"
 
 
 class Review(models.Model):
