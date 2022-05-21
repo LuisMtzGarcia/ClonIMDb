@@ -78,6 +78,6 @@ class Rating(models.Model):
     #       Repr. estrellas: 3.5 o 3
 
     def __str__(self):
-        """Regresa uan representacion en cadena del rating."""
+        """Regresa una representacion en cadena del rating."""
 
         return f"{self.usuario} da un {self.calificacion} a {self.pelicula}"
