@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Mis apps
+    'appIMDb',
+
+    # Apps default de Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
