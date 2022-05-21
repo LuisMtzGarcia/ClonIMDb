@@ -4,7 +4,7 @@ from decimal import Decimal
 class Pelicula(models.Model):
     """Una pelicula con sus caracteristicas y portada."""
 
-    titulo = models.CharField(max_length=100)
+    titulo = models.CharField(max_length=100, unique=True)
     # Considere un limite de 50 caracteres por que los titulos suelen ser cortos, 
     # pero opte por 100 para mantener el nombre original de las peliculas que
     # excedan este numero sin modificar el nombre, como por ej.:
