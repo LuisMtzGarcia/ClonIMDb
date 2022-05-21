@@ -21,15 +21,6 @@ class Pelicula(models.Model):
     portada = models.URLField(max_length=200) # Limite por default de Django
     # Uso URLField por que las portadas estaran almacenadas en un servidor externo.
 
-    numVotos = models.PositiveIntegerField()
-    # Almacena el numero de usuarios que han calificado la pelicula.
-
-    sumVotos = models.PositiveIntegerField()
-
-    rating = Decimal(sumVotos / numVotos)
-    # Obtiene el rating diviediendo la suma de los votos entre el numero de votos.
-    # Castea el resultado a Decimal para trabajar con el mas facilmente.
-
     def __str__(self):
         """Regresa una representacion en cadena del 'titulo' del modelo."""
 
@@ -57,3 +48,36 @@ class Review(models.Model):
         else:
             return f"{self.usuario}: {self.texto}"
    
+class Rating(models.Model):
+    """Un voto realizado por un usuario."""
+
+    usuario = models.CharField(max_length=50)
+    # Placeholder en lo que aniado los usuarios.
+
+    pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
+
+    calificacion = models.PositiveSmallIntegerField()
+    # Votos del 1 al 10
+    # Se elige este rango por que funciona para dos tipos de visualizacion:
+    #       - Una calificacion del 1 al 10
+    #       - Una representacion en 'estrellas', de 1 a 5.
+    #       Ejemplo:
+    #           Calificacion: 8
+    #               Representacion 1 a 10: 8
+    #               Representacion estrellas: 4
+    #                   - Se divide la calificacion en 2, 
+    #       Tambien, permite la representacion de medias estrellas:
+    #               Representacion 1 a 10: 9
+    #               Representacion estrellas: 4.5 ( 9 / 2 = 4.5 )
+    #
+    # Asimismo, si redondeamos el resultado de dividir la calificacion base10,
+    # se podria redondear a las representaciones adecuadas en estrellas.
+    # Ejemplo:
+    #       Repr. 1 a 10: 6.8
+    #           (6.8 / 2 = 3.4)
+    #       Repr. estrellas: 3.5 o 3
+
+    def __str__(self):
+        """Regresa uan representacion en cadena del rating."""
+
+        return f"{self.usuario} da un {self.calificacion} a {self.pelicula}"
