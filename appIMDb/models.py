@@ -21,6 +21,9 @@ class Pelicula(models.Model):
     portada = models.URLField(max_length=200) # Limite por default de Django
     # Uso URLField por que las portadas estaran almacenadas en un servidor externo.
 
+    class Meta:
+        verbose_name_plural = 'peliculas'
+
     def __str__(self):
         """Regresa una representacion en cadena del 'titulo' del modelo."""
 
