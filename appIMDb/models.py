@@ -34,4 +34,9 @@ class Pelicula(models.Model):
     """
     reviews = 
     """
+
+    def __str__(self):
+        """Regresa una representacion en cadena del 'titulo' del modelo."""
+
+        return self.titulo
    
