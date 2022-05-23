@@ -10,4 +10,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     # Pagina que muestra todas las peliculas.
     path('peliculas/', views.peliculas, name='peliculas'),
+    # Pagina detallada para una pelicula individual.
+    path('peliculas/<int:pelicula_id>/', views.pelicula, name='pelicula'),
 ]
