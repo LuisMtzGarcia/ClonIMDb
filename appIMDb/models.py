@@ -1,7 +1,7 @@
 from django.db import models
 from decimal import Decimal
 
-class Genero(models.model):
+class Genero(models.Model):
     """Un genero de pelicula."""
 
     nombre = models.CharField(max_length=50)
@@ -26,6 +26,7 @@ class Pelicula(models.Model):
     #       Benefit Glorious Nation of Kazakhstan (83 caracteres)
 
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
+    # Cada pelicula solo puede tener un genero.
 
     anio = models.PositiveSmallIntegerField()
     # El rango de este campo es de 0 a 32767.
