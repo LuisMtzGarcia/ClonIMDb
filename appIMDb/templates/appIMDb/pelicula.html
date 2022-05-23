@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ pelicula }}</title>
+  </head>
+
+  <body>
+    {% extends "appIMDb/base.html" %}
+
+    {% block content %}
+    
+        <p>Pelicula: {{ pelicula }}</p>
+
+        <p>Id IMDb: {{ pelicula.codigo }}</p>
+
+        <p>Genero: {{ pelicula.genero }}</p>
+
+        <p>Anio de lanzamiento: {{ pelicula.anio }}</p>
+
+        <p>Sinopsis: {{ pelicula.sinopsis }}</p>
+
+        <img src="{{ pelicula.portada }}" alt="portada de la pelicula">
+
+    {% endblock content %}
+  </body>
+</html>
