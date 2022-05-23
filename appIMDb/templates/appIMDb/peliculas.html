@@ -9,12 +9,14 @@
     {% extends "appIMDb/base.html" %}
 
     {% block content %}
-    
+
         <p>Peliculas</p>
         
         <ul>
             {% for pelicula in peliculas %}
-                <li>{{ pelicula }}</li>
+                <li>
+                    <a href="{% url 'appIMDb:pelicula' pelicula.id %}">{{ pelicula }}</a>
+                </li>
             {% empty %}
                 <li>Aun no se han registrado ninguna pelicula.</li>
             {% endfor %}
