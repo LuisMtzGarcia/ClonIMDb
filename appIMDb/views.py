@@ -12,3 +12,10 @@ def peliculas(request):
 
     context = {'peliculas': peliculas}
     return render(request, 'appIMDb/peliculas.html', context)
+
+def pelicula(request, pelicula_id):
+    """ Muestra los detalles de una pelicula. """
+    pelicula = Pelicula.objects.get(id=pelicula_id)
+
+    context = {'pelicula': pelicula}
+    return render(request, 'appIMDb/pelicula.html', context)
