@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>clonIMdb</title>
+  </head>
+
+  <body>
+      <p>
+          <a href="{% url 'appIMDb:index' }">Pagina principal</a>
+      </p>
+      {% block content %}{% endblock content %}
+  </body>
+</html>
