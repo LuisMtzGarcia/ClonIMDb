@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Peliculas</title>
+  </head>
+
+  <body>
+    {% extends "appIMDb/base.html" %}
+
+    {% block content %}
+    
+        <p>Peliculas</p>
+        
+        <ul>
+            {% for pelicula in peliculas %}
+                <li>{{ pelicula }}</li>
+            {% empty %}
+                <li>Aun no se han registrado ninguna pelicula.</li>
+            {% endfor %}
+        </ul>
+
+    {% endblock content %}
+  </body>
+</html>
