@@ -25,6 +25,34 @@ class Pelicula(models.Model):
     #   Borat: Cultural Learnings of America for Make 
     #       Benefit Glorious Nation of Kazakhstan (83 caracteres)
 
+    codigo = models.CharField(max_length=10, unique=True)
+    # IMDb le otorga un codigo de 9 caracteres a todas las peliculas en su base de datos.
+    # Este codigo funciona para encontrar mas informacion sobre una pelicula,
+    # ignorando el lenguaje del idioma y eliminando la necesidad de 'adivinar'
+    # el nombre de la pelicula en otro idioma.
+    # Ejemplos de diferentes casos:
+    #   - El mejor de los casos:
+    #       Nombre original: "Iron Man"
+    #       Nombre espaniol: "Iron Man"
+    #       
+    #       En este caso, el titulo original de la pelicula es el mismo en todo el 
+    #       mundo.
+    #
+    #   - El titulo es traducido literalmente:
+    #       Nombre original: "Legally Blonde"
+    #       Nombre espaniol: "Legalmente Rubia"
+    #
+    #       En estos casos, el titulo original es traducido y podemos encontrar mas
+    #       informacion de la pelicula solo asumiendo que se traduce el nombre.
+    #
+    #   - El titulo es completamente diferente:
+    #       Nombre original: "John Wick"
+    #       Nombre espaniol: "Otro dia para matar"
+    #       
+    #       En estos casos, el titulo es completamente diferente, ya sea por razones
+    #       de marketing o por que el nombre viene de una lengua con un alfabeto
+    #       diferente.
+
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     # Cada pelicula solo puede tener un genero.
 
