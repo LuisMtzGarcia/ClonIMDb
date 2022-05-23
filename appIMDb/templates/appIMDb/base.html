@@ -9,6 +9,11 @@
       <p>
           <a href="{% url 'appIMDb:index' %}">Pagina principal</a>
           <a href="{% url 'appIMDb:peliculas' %}">Peliculas</a>
+            {% if user.is_authenticated %}
+                Hola, {{ user.username }}.
+            {% else %}
+                <a href="{% url 'users:login' %}">Accede a tu cuenta</a>
+            {% endif %}
       </p>
       {% block content %}{% endblock content %}
   </body>
