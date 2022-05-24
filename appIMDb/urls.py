@@ -12,4 +12,6 @@ urlpatterns = [
     path('peliculas/', views.peliculas, name='peliculas'),
     # Pagina detallada para una pelicula individual.
     path('peliculas/<int:pelicula_id>/', views.pelicula, name='pelicula'),
+    # Pagina para escribir una resenia.
+    path('review/<int:pelicula_id>/', views.nuevaReview, name='nuevaReview'),
 ]
