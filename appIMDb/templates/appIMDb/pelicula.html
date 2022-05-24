@@ -20,6 +20,15 @@
 
         <p>Sinopsis: {{ pelicula.sinopsis }}</p>
 
+        {% if user.is_authenticated %}
+            <p>Que piensas sobre esta pelicula?</p>
+            <a href="{% url 'appIMDb:nuevaReview' pelicula.id %}">Escribe una review!</a>
+        {% else %}
+            <p>Quieres darnos tu opinion? Entra a tu cuenta y cuentanos!</p>
+            <a href="{% url 'users:registro' %}">Registrate</a> - 
+            <a href="{% url 'users:login' %}">Accede a tu cuenta</a>
+        {% endif %}
+        
         <img 
         class="poster"
         src="{{ pelicula.portada }}" 
