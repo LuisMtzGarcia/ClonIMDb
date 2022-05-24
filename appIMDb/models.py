@@ -87,6 +87,8 @@ class Review(models.Model):
     texto = models.TextField()
     # No tiene un limite actual, pero considerare un limite.
 
+    fecha = models.DateField(auto_now_add=True)
+
     def __str__(self):
         """Regresa una representacion en cadena de la review."""
 
