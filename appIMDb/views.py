@@ -36,6 +36,7 @@ def nuevaReview(request, pelicula_id):
         if form.is_valid():
             nuevaReview = form.save(commit=False)
             nuevaReview.pelicula = pelicula
+            nuevaReview.usuario = request.user
             nuevaReview.save()
             return redirect('appIMDb:pelicula', pelicula_id=pelicula_id)
 
