@@ -92,10 +92,10 @@ class Review(models.Model):
     def __str__(self):
         """Regresa una representacion en cadena de la review."""
 
-        # En caso de que la review supere los 100 caracteres, aniade 
+        # En caso de que la review supere los 50 caracteres, aniade 
         # puntos suspensivos.
-        if len(self.texto) > 100:
-            return f"{self.usuario}: {self.texto[:100]}..."
+        if len(self.texto) > 50:
+            return f"{self.usuario}: {self.texto[:50]}..."
         else:
             return f"{self.usuario}: {self.texto}"
    

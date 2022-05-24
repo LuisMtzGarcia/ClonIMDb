@@ -39,6 +39,8 @@
         {% for review in reviews %}
         <p>Usuario: {{ review.usuario }}</p>
         {{ review.texto }}
+        {% empty %}
+        <p>Todavia no hay ninguna review</p>
         {% endfor %}
 
     {% endblock content %}
