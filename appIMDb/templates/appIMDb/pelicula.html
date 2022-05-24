@@ -29,10 +29,17 @@
             <a href="{% url 'users:login' %}">Accede a tu cuenta</a>
         {% endif %}
         
+        <br>
         <img 
         class="poster"
         src="{{ pelicula.portada }}" 
         alt="portada de la pelicula">
+
+        <p>Reviews:</p>
+        {% for review in reviews %}
+        <p>Usuario: {{ review.usuario }}</p>
+        {{ review.texto }}
+        {% endfor %}
 
     {% endblock content %}
   </body>
