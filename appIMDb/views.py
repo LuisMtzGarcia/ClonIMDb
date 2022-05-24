@@ -19,7 +19,11 @@ def pelicula(request, pelicula_id):
     """ Muestra los detalles de una pelicula. """
     pelicula = Pelicula.objects.get(id=pelicula_id)
 
-    context = {'pelicula': pelicula}
+    # Todas las reviews de la pelicula presentadas por fecha
+    # en orden reverso.
+    reviews = pelicula.review_set.order_by('-fecha')
+
+    context = {'pelicula': pelicula, 'reviews': reviews}
     return render(request, 'appIMDb/pelicula.html', context)
 
 @login_required
