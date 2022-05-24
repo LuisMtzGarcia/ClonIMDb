@@ -1,4 +1,3 @@
-from gzip import READ
 from django.shortcuts import render,  redirect
 
 from .models import Pelicula
