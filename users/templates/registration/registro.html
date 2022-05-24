@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+  </head>
+
+  <body>
+    {% extends "appIMDb/base.html" %}
+
+    {% block content %}
+
+        <form method="post" action="{% url 'users:registro' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button name="submit">Registrate</button>
+            <input type="hidden" name="next" value="{% url 'appIMDb:index' %}">
+        </form>
+
+    {% endblock content %}
+  </body>
+</html>
