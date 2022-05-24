@@ -87,25 +87,6 @@ class Review(models.Model):
     texto = models.TextField(null=True)
     # No tiene un limite actual, pero considerare un limite.
 
-    fecha = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        """Regresa una representacion en cadena de la review."""
-
-        # En caso de que la review supere los 50 caracteres, aniade 
-        # puntos suspensivos.
-        if len(self.texto) > 50:
-            return f"{self.usuario}: {self.texto[:50]}..."
-        else:
-            return f"{self.usuario}: {self.texto}"
-   
-class Rating(models.Model):
-    """Un voto realizado por un usuario."""
-
-    usuario =  models.ForeignKey(User, on_delete=models.CASCADE)
-
-    pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
-
     calificacion = models.PositiveSmallIntegerField()
     # Votos del 1 al 10
     # Se elige este rango por que funciona para dos tipos de visualizacion:
@@ -127,7 +108,14 @@ class Rating(models.Model):
     #           (6.8 / 2 = 3.4)
     #       Repr. estrellas: 3.5 o 3
 
-    def __str__(self):
-        """Regresa una representacion en cadena del rating."""
+    fecha = models.DateField(auto_now_add=True)
 
-        return f"{self.usuario} da un {self.calificacion} a {self.pelicula}"
+    def __str__(self):
+        """Regresa una representacion en cadena de la review."""
+
+        # En caso de que la review supere los 50 caracteres, aniade 
+        # puntos suspensivos.
+        if len(self.texto) > 50:
+            return f"{self.usuario}: {self.texto[:50]}..."
+        else:
+            return f"{self.usuario}: {self.texto}"
