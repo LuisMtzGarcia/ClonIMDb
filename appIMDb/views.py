@@ -43,6 +43,25 @@ def nuevaReview(request, pelicula_id):
 
     pelicula = Pelicula.objects.get(id=pelicula_id)
 
+    # Este bloque es un placeholder en lo que se implementa una view para
+    # editar reviews.
+    # Cuando el usuario tenga una review previa de una pelicula y quiera
+    # realizar una segunda review, se le redireccionara a la pagina de
+    # edicion de review, para que no pueda subir multiples reviews a una 
+    # sola pelicula.
+    """
+    # Hace un query por todas las reviews de la pelicula
+    reviews = pelicula.review_set.all()
+
+    # Este bloque verificara si el usuario ha subido una review para esta pelicula
+    # antes y en lugar de permitirle subir una nueva, le mostrara la misma.
+
+    reviewPrevia = Review.objects.none() # Inicializa la variable con un queryset vacio
+    for review in reviews:
+        if review.usuario == request.user:
+            reviewPrevia = review
+    """
+
     if request.method != 'POST':
         # No se ha subido la informacion; crea un formulario en blanco.
         form = ReviewForm(initial={'pelicula': pelicula})
