@@ -1,0 +1,18 @@
+{% extends 'appIMDb/base.html' %}
+
+{% block content %}
+
+    <p>
+        <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
+            {{ pelicula }}
+        </a>
+    </p>
+
+    <p>Escribe una review: </p>
+    <form action="{% url 'appIMDb:nuevaReview' pelicula.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Subir review</button>
+    </form>
+
+{% endblock content %}
