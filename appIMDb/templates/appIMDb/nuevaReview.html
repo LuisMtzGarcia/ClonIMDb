@@ -2,11 +2,11 @@
 
 {% block content %}
 
-    <p>
+    <h1 class="titulo-peli">
         <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
             {{ pelicula }}
         </a>
-    </p>
+    </h1>
 
     <p>Escribe una review: </p>
     <form action="{% url 'appIMDb:nuevaReview' pelicula.id %}" method="post">

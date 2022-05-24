@@ -2,3 +2,8 @@
     max-width: 300px;
     max-height: auto;
 }
+
+.titulo-peli {
+    text-align: center;
+    text-decoration: none;
+}
