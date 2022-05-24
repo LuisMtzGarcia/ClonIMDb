@@ -29,7 +29,7 @@ def nuevaReview(request, pelicula_id):
 
     if request.method != 'POST':
         # No se ha subido la informacion; crea un formulario en blanco.
-        form = ReviewForm()
+        form = ReviewForm(initial={'pelicula': pelicula})
     else:
         # Datos POST subidos; procesar informacion.
         form = ReviewForm(data=request.POST)
