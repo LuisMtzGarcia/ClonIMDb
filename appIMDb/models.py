@@ -92,7 +92,7 @@ class Review(models.Model):
 
         # En caso de que la review supere los 100 caracteres, aniade 
         # puntos suspensivos.
-        if len(self.texto > 100):
+        if len(self.texto) > 100:
             return f"{self.usuario}: {self.texto[:100]}..."
         else:
             return f"{self.usuario}: {self.texto}"
