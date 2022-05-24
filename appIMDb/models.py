@@ -84,7 +84,7 @@ class Review(models.Model):
 
     pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
 
-    texto = models.TextField()
+    texto = models.TextField(null=True)
     # No tiene un limite actual, pero considerare un limite.
 
     fecha = models.DateField(auto_now_add=True)
