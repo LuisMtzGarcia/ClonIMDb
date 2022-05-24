@@ -23,7 +23,16 @@ def pelicula(request, pelicula_id):
     # en orden reverso.
     reviews = pelicula.review_set.order_by('-fecha')
 
-    context = {'pelicula': pelicula, 'reviews': reviews}
+    # Este bloque calcula la calificacion otorgada por
+    # todas las reviews.
+    calificacion = 0
+    for review in reviews:
+        calificacion += review.calificacion
+    
+    # Calcula la calificacion promedio
+    calificacion = calificacion / len(reviews)
+
+    context = {'pelicula': pelicula, 'reviews': reviews, 'calificacion': calificacion}
     return render(request, 'appIMDb/pelicula.html', context)
 
 @login_required
