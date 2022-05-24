@@ -7,8 +7,8 @@ class ReviewForm(forms.ModelForm):
 
     class Meta:
         model = Review
-        fields = ['pelicula', 'texto']
-        labels = {'pelicula': '', 'texto': 'Resenia'}
+        fields = ['pelicula', 'texto', 'calificacion']
+        labels = {'pelicula': '', 'texto': 'Review', 'califacion': 'calificacion'}
         widgets = {'texto': forms.Textarea(attrs={'cols': 80})}
         # Sobrescribe el widget default de Django.
         # El widget de texto tiene por default un area de texto de 40 columnas,
