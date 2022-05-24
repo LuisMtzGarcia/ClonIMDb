@@ -31,6 +31,8 @@ def pelicula(request, pelicula_id):
     
     # Calcula la calificacion promedio
     calificacion = calificacion / len(reviews)
+    # Redondear el numero a 2 decimales
+    calificacion = round(calificacion, 2)
 
     context = {'pelicula': pelicula, 'reviews': reviews, 'calificacion': calificacion}
     return render(request, 'appIMDb/pelicula.html', context)
