@@ -1,4 +1,5 @@
 from django.shortcuts import render,  redirect
+from django.contrib.auth.decorators import login_required
 
 from .models import Pelicula
 from .forms import ReviewForm
@@ -21,6 +22,7 @@ def pelicula(request, pelicula_id):
     context = {'pelicula': pelicula}
     return render(request, 'appIMDb/pelicula.html', context)
 
+@login_required
 def nuevaReview(request, pelicula_id):
     """ Aniade una nueva review a una pelicula. """
 
