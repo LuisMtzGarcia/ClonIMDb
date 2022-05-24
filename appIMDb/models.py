@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Genero(models.Model):
     """Un genero de pelicula."""
@@ -87,7 +88,8 @@ class Review(models.Model):
     texto = models.TextField(null=True)
     # No tiene un limite actual, pero considerare un limite.
 
-    calificacion = models.PositiveSmallIntegerField()
+    calificacion = models.PositiveSmallIntegerField(validators=[MinValueValidator(0),
+                                                                MaxValueValidator(10)])
     # Votos del 1 al 10
     # Se elige este rango por que funciona para dos tipos de visualizacion:
     #       - Una calificacion del 1 al 10
