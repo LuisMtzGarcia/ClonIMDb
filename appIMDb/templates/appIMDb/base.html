@@ -11,6 +11,7 @@
           <a href="{% url 'appIMDb:peliculas' %}">Peliculas</a>
             {% if user.is_authenticated %}
                 Hola, {{ user.username }}.
+                <a href="{% url 'users:logout' %}">Cerrar sesion</a>
             {% else %}
                 <a href="{% url 'users:login' %}">Accede a tu cuenta</a>
             {% endif %}
