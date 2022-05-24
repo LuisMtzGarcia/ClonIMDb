@@ -82,8 +82,7 @@ class Pelicula(models.Model):
 class Review(models.Model):
     """Una review de un usuario para una pelicula."""
 
-    usuario = models.CharField(max_length=50) 
-    # Placeholder en lo que aniado los usuarios.
+    usuario =  models.ForeignKey(User, on_delete=models.CASCADE)
 
     pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
 
@@ -103,8 +102,7 @@ class Review(models.Model):
 class Rating(models.Model):
     """Un voto realizado por un usuario."""
 
-    usuario = models.CharField(max_length=50)
-    # Placeholder en lo que aniado los usuarios.
+    usuario =  models.ForeignKey(User, on_delete=models.CASCADE)
 
     pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
 
