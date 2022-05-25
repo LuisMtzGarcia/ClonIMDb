@@ -58,7 +58,7 @@ def genero(request, genero_id):
 
     genero = Genero.objects.get(id=genero_id)
 
-    peliculas = genero.pelicula_set.all()
+    peliculas = genero.pelicula_set.order_by('titulo')
 
     context = {'genero': genero, 'peliculas': peliculas}
     return render(request, 'appIMDb/genero.html', context)

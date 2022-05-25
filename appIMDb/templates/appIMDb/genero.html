@@ -7,7 +7,7 @@
     </h1>
 
     <ul>
-        {% for genero in generos %}
+        {% for pelicula in peliculas %}
             <li>
                 <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
                     {{ pelicula }}
