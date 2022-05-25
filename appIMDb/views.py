@@ -25,12 +25,21 @@ def pelicula(request, pelicula_id):
 
     # Este bloque calcula la calificacion otorgada por
     # todas las reviews.
-    calificacion = 0
+    calificacion = None
     for review in reviews:
+        if calificacion == None:
+            calificacion = 0
         calificacion += review.calificacion
     
-    # Calcula la calificacion promedio
-    calificacion = calificacion / len(reviews)
+    # Calcula la calificacion promedio, evita la division de 0 si 
+    if calificacion > 0:
+        calificacion = calificacion / len(reviews)
+
+    # Nota: Falta trabajar con lo de None, como convertirlo a integer o que hacer
+    # cuando la calificacion sale como None porque no hay reviews.
+    # Se podria dejar tal como None porque if calificacion es falsy.
+    
+    
     # Redondear el numero a 2 decimales
     calificacion = round(calificacion, 2)
 
