@@ -68,7 +68,7 @@ class Pelicula(models.Model):
 
     favoritos = models.ManyToManyField(
         User, related_name='favorito', default=None, blank=True
-    )
+    ) # Almacena los id's de los usuarios que la han marcado como favorita.
 
     class Meta:
         verbose_name_plural = 'peliculas'
