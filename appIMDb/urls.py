@@ -12,6 +12,8 @@ urlpatterns = [
     path('peliculas/', views.peliculas, name='peliculas'),
     # Pagina detallada para una pelicula individual.
     path('peliculas/<int:pelicula_id>/', views.pelicula, name='pelicula'),
+    # Pagina que muestra todos los generos.
+    path('generos/', views.generos, name='generos'),
     # Pagina para escribir una review.
     path('review/<int:pelicula_id>/', views.nuevaReview, name='nuevaReview'),
     # Pagina para editar una review.
