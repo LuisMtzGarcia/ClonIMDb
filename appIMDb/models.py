@@ -66,6 +66,10 @@ class Pelicula(models.Model):
     portada = models.URLField(max_length=200) # Limite por default de Django
     # Uso URLField por que las portadas estaran almacenadas en un servidor externo.
 
+    favoritos = models.ManyToManyField(
+        User, related_name='favorito', default=None, blank=True
+    )
+
     class Meta:
         verbose_name_plural = 'peliculas'
 
