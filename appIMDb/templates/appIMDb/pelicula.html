@@ -13,9 +13,15 @@
         <p>Pelicula: {{ pelicula }}</p>
 
         {% if user.is_authenticated %}
+          {% if favFlag %}
+            <a href="{% url 'users:marcarFav' pelicula.id %}">
+              Eliminala de tus favoritos
+            </a>
+          {% else %}
             <a href="{% url 'users:marcarFav' pelicula.id %}">
               Marcala como de tus favoritas
             </a>
+          {% endif %}
         {% else %}
             <a href="{% url 'users:registro' %}">
               Registrate para guardar tus pelis favoritas
