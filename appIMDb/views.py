@@ -1,5 +1,6 @@
 from django.shortcuts import render,  redirect
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 from .models import Pelicula, Review, Genero
 from .forms import ReviewForm
@@ -116,6 +117,10 @@ def editarReview(request, review_id):
     """Edita una review existente"""
 
     review = Review.objects.get(id=review_id)
+
+    # Verifica que la review por editar sea del usuario.
+    if review.usuario != request.user:
+        raise Http404
 
     pelicula = review.pelicula
 
