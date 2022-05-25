@@ -1,7 +1,7 @@
 from django.shortcuts import render,  redirect
 from django.contrib.auth.decorators import login_required
 
-from .models import Pelicula
+from .models import Pelicula, Review
 from .forms import ReviewForm
 
 def index(request):
@@ -78,3 +78,22 @@ def nuevaReview(request, pelicula_id):
     # Muestra un formulario en blanco o invalido.
     context = {'pelicula': pelicula, 'form': form}
     return render(request, 'appIMDb/nuevaReview.html', context)
+
+@login_required
+def editarReview(request, review_id):
+    """Edita una review existente"""
+
+    review = Review.objects.get(id=review_id)
+
+    if request.method != 'POST':
+        # Request inicial, pre-llena el formulario con la review actual.
+        form = ReviewForm(instance=review)
+    else:
+        # Datos POST subidos; procesa los datos.
+        form = ReviewForm(instance=review, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('appIMDb:pelicula', pelicula_id=review.pelicula.id)
+
+    context = {'review': review, 'form': form}
+    return render(request, 'appIMDb/editarReview.html', context)
