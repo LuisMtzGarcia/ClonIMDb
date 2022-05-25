@@ -3,7 +3,7 @@
     max-height: auto;
 }
 
-.titulo-peli {
+.titulo-peli, .titulo-genero {
     text-align: center;
     text-decoration: none;
 }

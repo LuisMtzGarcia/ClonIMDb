@@ -1,0 +1,23 @@
+{% extends 'appIMDb/base.html' %}
+
+{% block content %}
+
+    <h1 class="titulo-genero">
+        {{ genero }}
+    </h1>
+
+    <ul>
+        {% for genero in generos %}
+            <li>
+                <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
+                    {{ pelicula }}
+                </a>
+            </li>
+        {% empty %}
+            <li>
+                Aun no se han registrado peliculas para este genero.
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
