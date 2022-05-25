@@ -1,0 +1,17 @@
+{% extends 'appIMDb/base.html' %}
+
+{% block content %}
+
+    {% for genero in generos %}
+        <h1>
+            <a href="{% url 'appIMDb:genero' genero.id %}">
+                {{ genero }}
+            </a>
+        </h1>
+    {% empty %}
+        <p>
+            Aun no se ha registrado algun genero.
+        </p>
+    {% endfor %}
+
+{% endblock content %}
