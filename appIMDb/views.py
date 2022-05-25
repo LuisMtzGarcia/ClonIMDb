@@ -1,4 +1,4 @@
-from django.shortcuts import render,  redirect
+from django.shortcuts import render,  redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
@@ -18,7 +18,7 @@ def peliculas(request):
 
 def pelicula(request, pelicula_id):
     """ Muestra los detalles de una pelicula. """
-    pelicula = Pelicula.objects.get(id=pelicula_id)
+    pelicula = get_object_or_404(Pelicula, id=pelicula_id)
 
     # Todas las reviews de la pelicula presentadas por fecha
     # en orden reverso.
