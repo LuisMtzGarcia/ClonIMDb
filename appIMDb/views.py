@@ -85,6 +85,8 @@ def editarReview(request, review_id):
 
     review = Review.objects.get(id=review_id)
 
+    pelicula = review.pelicula
+
     if request.method != 'POST':
         # Request inicial, pre-llena el formulario con la review actual.
         form = ReviewForm(instance=review)
@@ -93,7 +95,7 @@ def editarReview(request, review_id):
         form = ReviewForm(instance=review, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('appIMDb:pelicula', pelicula_id=review.pelicula.id)
+            return redirect('appIMDb:pelicula', pelicula_id=pelicula.id)
 
-    context = {'review': review, 'form': form}
+    context = {'review': review, 'pelicula': pelicula, 'form': form}
     return render(request, 'appIMDb/editarReview.html', context)
