@@ -76,7 +76,7 @@ def genero(request, genero_id):
 def nuevaReview(request, pelicula_id):
     """ Aniade una nueva review a una pelicula. """
 
-    pelicula = Pelicula.objects.get(id=pelicula_id)
+    pelicula = get_object_or_404(Pelicula, id=pelicula_id)
 
     # Este bloque verificara si el usuario ha subido una review para esta pelicula
     # antes y en lugar de permitirle subir una nueva, lo redireccionara para
