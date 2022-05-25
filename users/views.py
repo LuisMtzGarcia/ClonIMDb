@@ -28,6 +28,14 @@ def registro(request):
     return render(request, 'registration/registro.html', context)
 
 @login_required
+def listaFav(request):
+
+    peliculas = Pelicula.objects.filter(favoritos=request.user)
+
+    context = {'peliculas': peliculas}
+    return render(request, 'dashboard/favoritos.html', context)
+
+@login_required
 def marcarFav(request, pelicula_id):
     """Usuario marca una pelicula como de sus favoritas."""
 
