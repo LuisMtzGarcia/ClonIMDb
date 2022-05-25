@@ -61,7 +61,7 @@ class Pelicula(models.Model):
     # El rango de este campo es de 0 a 32767.
     # Adecuado al rango con el que estaremos trabajando (0 a 2XXX)
 
-    sinopsis = models.TextField()
+    sinopsis = models.TextField(max_length=500) # Limite de 500 caracteres.
 
     portada = models.URLField(max_length=200) # Limite por default de Django
     # Uso URLField por que las portadas estaran almacenadas en un servidor externo.
