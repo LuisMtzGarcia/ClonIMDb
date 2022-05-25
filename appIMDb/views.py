@@ -1,7 +1,7 @@
 from django.shortcuts import render,  redirect
 from django.contrib.auth.decorators import login_required
 
-from .models import Pelicula, Review
+from .models import Pelicula, Review, Genero
 from .forms import ReviewForm
 
 def index(request):
@@ -44,6 +44,14 @@ def pelicula(request, pelicula_id):
 
     context = {'pelicula': pelicula, 'reviews': reviews, 'calificacion': calificacion}
     return render(request, 'appIMDb/pelicula.html', context)
+
+def generos(request):
+    """Muestra todos los generos de peliculas disponibles."""
+
+    generos = Genero.objects.all()
+
+    context = {'generos': generos}
+    return render(request, 'appIMDb/generos.html', context)
 
 @login_required
 def nuevaReview(request, pelicula_id):
