@@ -31,17 +31,16 @@ def pelicula(request, pelicula_id):
         if calificacion == None:
             calificacion = 0
         calificacion += review.calificacion
-    
-    # Calcula la calificacion promedio, evita la division de 0 si es el resultado
-    # de las sumas. 
-    # Si la suma total de calificacion es 0, no hay necesidad de obtener el
-    # promedio; todos habrian votado 0.
-    if calificacion > 0:
-        calificacion = calificacion / len(reviews)    
-    
+
     # Redondear el numero a 2 decimales
-    if calificacion != None: 
-        calificacion = round(calificacion, 2)
+    if calificacion != None:
+        # Calcula la calificacion promedio, evita la division de 0 si es el resultado
+        # de las sumas. 
+        # Si la suma total de calificacion es 0, no hay necesidad de obtener el
+        # promedio; todos habrian votado 0.
+        if calificacion > 0:
+            calificacion = calificacion / len(reviews)
+            calificacion = round(calificacion, 2) 
 
     context = {'pelicula': pelicula, 'reviews': reviews, 'calificacion': calificacion}
     return render(request, 'appIMDb/pelicula.html', context)
