@@ -12,7 +12,16 @@
     
         <p>Pelicula: {{ pelicula }}</p>
 
-        <p>Calificacion: {{ calificacion }}</p>
+        {% if calificacion %}
+          <p>Calificacion: {{ calificacion }}</p>
+        {% else %}
+          <p>
+            Nadie ha calificado esta pelicula, 
+            <a href="{% url 'appIMDb:nuevaReview' pelicula.id %}">
+               se el primero!
+            </a>
+          </p>
+        {% endif %}
 
         <p>Id IMDb: {{ pelicula.codigo }}</p>
 
