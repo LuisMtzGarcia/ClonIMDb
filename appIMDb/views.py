@@ -65,7 +65,7 @@ def generos(request):
 def genero(request, genero_id):
     """Muestra todas las peliculas de un genero elegido."""
 
-    genero = Genero.objects.get(id=genero_id)
+    genero = get_object_or_404(Genero, id=genero_id)
 
     peliculas = genero.pelicula_set.order_by('titulo')
 
