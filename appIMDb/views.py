@@ -116,7 +116,7 @@ def nuevaReview(request, pelicula_id):
 def editarReview(request, review_id):
     """Edita una review existente"""
 
-    review = Review.objects.get(id=review_id)
+    review = get_object_or_404(Review, id=review_id)
 
     # Verifica que la review por editar sea del usuario.
     if review.usuario != request.user:
