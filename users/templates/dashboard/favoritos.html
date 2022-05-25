@@ -3,6 +3,15 @@
 {% block content %}
 
     <h1>Favoritos</h1>
+    <ul>
+        {% for pelicula in peliculas %}
+            <li>
+                <a href="{% url 'appIMDb:pelicula' pelicula.id %}">{{ pelicula }}</a>
+            </li>
+        {% empty %}
+            <li>Aun no se han registrado ninguna pelicula.</li>
+        {% endfor %}
+    </ul>
 
 
 
