@@ -11,9 +11,16 @@
     {% block content %}
     
         <p>Pelicula: {{ pelicula }}</p>
-        <a href="{% url 'users:marcarFav' pelicula.id %}">
-          Marcala como de tus favoritas
-        </a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'users:marcarFav' pelicula.id %}">
+              Marcala como de tus favoritas
+            </a>
+        {% else %}
+            <a href="{% url 'users:registro' %}">
+              Registrate para guardar tus pelis favoritas
+            </a>
+        {% endif %}
 
         {% if calificacion %}
           <p>Calificacion: {{ calificacion }}</p>
