@@ -53,6 +53,16 @@ def generos(request):
     context = {'generos': generos}
     return render(request, 'appIMDb/generos.html', context)
 
+def genero(request, genero_id):
+    """Muestra todas las peliculas de un genero elegido."""
+
+    genero = Genero.objects.get(id=genero_id)
+
+    peliculas = genero.pelicula_set.all()
+
+    context = {'genero': genero, 'peliculas': peliculas}
+    return render(request, 'appIMDb/genero.html', context)
+
 @login_required
 def nuevaReview(request, pelicula_id):
     """ Aniade una nueva review a una pelicula. """
