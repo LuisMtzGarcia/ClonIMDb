@@ -42,7 +42,15 @@ def pelicula(request, pelicula_id):
             calificacion = calificacion / len(reviews)
             calificacion = round(calificacion, 2) 
 
-    context = {'pelicula': pelicula, 'reviews': reviews, 'calificacion': calificacion}
+    # Verifica si el usuario la ha marcado como favorita o no
+    if pelicula.favoritos.filter(id=request.user.id).exists():
+        # Esta flag dira si el usuario la ha marcado como favorita antes.
+        favFlag = True
+    else:
+        favFlag = False
+
+    context = {'pelicula': pelicula, 'reviews': reviews, 'calificacion': calificacion,
+                'favFlag': favFlag}
     return render(request, 'appIMDb/pelicula.html', context)
 
 def generos(request):
