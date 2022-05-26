@@ -2,6 +2,39 @@ from django.test import TestCase
 
 from appIMDb.models import Pelicula, Genero
 
+class GeneroModelTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        # Configura objetos no modificados usados por todos los metodos de pruebas.
+        Genero.objects.create(nombre='Comedia')
+
+    # Prueba para campo de Nombre
+
+    def testNombreLabel(self):
+        genero = Genero.objects.get(id=1)
+        fieldLabel = genero._meta.get_field('nombre').verbose_name
+        self.assertEqual(fieldLabel, 'nombre')
+
+    def testNombreMaxLength(self):
+        genero = Genero.objects.get(id=1)
+        maxLength = genero._meta.get_field('nombre').max_length
+        self.assertEqual(maxLength, 50)
+
+    # Prueba para nombre plural
+
+    def testPluralName(self):
+        genero = Genero.objects.get(id=1)
+        pluralEsperado = genero._meta.verbose_name_plural
+        self.assertEqual(str(genero._meta.verbose_name_plural), pluralEsperado)
+
+    # Pruebas para la representacion en cadena del modelo
+
+    def testCadenaGenero(self):
+        genero = Genero.objects.get(id=1)
+        cadenaEsperada = f"{genero.nombre}"
+        self.assertEqual(str(genero), cadenaEsperada)
+
 class PeliculaModelTest(TestCase):
 
     @classmethod
