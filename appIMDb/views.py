@@ -150,6 +150,3 @@ def borrarReview(request, review_id):
         return redirect('appIMDb:pelicula', pelicula_id=pelicula.id)
     else:
         raise PermissionDenied
-
-    context = {'pelicula': pelicula}
-    return render(request, 'appIMDb/borrarReview.html', context)
