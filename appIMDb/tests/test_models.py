@@ -97,6 +97,23 @@ class PeliculaModelTest(TestCase):
         pelicula = Pelicula.objects.get(id=1)
         sinopsisEsperado = f'{pelicula.sinopsis}'
         self.assertEqual(str(pelicula.sinopsis), sinopsisEsperado)
+
+    # Pruebas para campo de Portada
+
+    def testPortadaLabel(self):
+        pelicula = Pelicula.objects.get(id=1)
+        fieldLabel = pelicula._meta.get_field('portada').verbose_name
+        self.assertEqual(fieldLabel, 'portada')
+
+    def testPortadaMaxLength(self):
+        pelicula = Pelicula.objects.get(id=1)
+        maxLength = pelicula._meta.get_field('portada').max_length
+        self.assertEqual(maxLength, 200)
+
+    def testCadenaPortada(self):
+        pelicula = Pelicula.objects.get(id=1)
+        portadaEsperado = f'{pelicula.portada}'
+        self.assertEqual(str(pelicula.portada), portadaEsperado)
 """
 class TestClass(TestCase):
 
