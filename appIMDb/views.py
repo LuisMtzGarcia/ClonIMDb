@@ -1,5 +1,6 @@
 from django.shortcuts import render,  redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from django.http import Http404
 
 from .models import Pelicula, Review, Genero
@@ -136,3 +137,16 @@ def editarReview(request, review_id):
 
     context = {'review': review, 'pelicula': pelicula, 'form': form}
     return render(request, 'appIMDb/editarReview.html', context)
+
+@login_required
+def borrarReview(request, review_id):
+    """Elimina una review existente."""
+    review = get_object_or_404(Review, id=review_id)
+
+    pelicula = review.pelicula
+    # Verifica que la review por editar sea del usuario.
+    if review.usuario == request.user:
+        review.delete()
+        return redirect('appIMDb:pelicula', pelicula_id=pelicula.id)
+    else:
+        raise PermissionDenied
