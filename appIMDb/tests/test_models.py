@@ -32,6 +32,21 @@ class PeliculaModelTest(TestCase):
         nombreEsperado = f'{pelicula.titulo}'
         self.assertEqual(str(pelicula), nombreEsperado)
 
+    def testCodigoLabel(self):
+        pelicula = Pelicula.objects.get(id=1)
+        fieldLabel = pelicula._meta.get_field('codigo').verbose_name
+        self.assertEqual(fieldLabel, 'codigo')
+
+    def testCodigoMaxLength(self):
+        pelicula = Pelicula.objects.get(id=1)
+        maxLength = pelicula._meta.get_field('codigo').max_length
+        self.assertEqual(maxLength, 10)
+
+    def testCadenaCodigo(self):
+        pelicula = Pelicula.objects.get(id=1)
+        codigoEsperado = f'{pelicula.codigo}'
+        self.assertEqual(str(pelicula.codigo), codigoEsperado)
+
 """
 class TestClass(TestCase):
 
