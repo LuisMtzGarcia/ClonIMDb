@@ -17,6 +17,8 @@ class PeliculaModelTest(TestCase):
             portada='https://m.media-amazon.com/images/M/MV5BOWI2MDQ1ODItMjJjNS00MjY5LWJhZmItM2JkNTI0YzQ3OWE1XkEyXkFqcGdeQXVyMzcwOTM4NzY@._V1_.jpg',
             )
 
+    # Pruebas para campo de Titulo
+
     def testTituloLabel(self):
         pelicula = Pelicula.objects.get(id=1)
         fieldLabel = pelicula._meta.get_field('titulo').verbose_name
@@ -31,6 +33,8 @@ class PeliculaModelTest(TestCase):
         pelicula = Pelicula.objects.get(id=1)
         nombreEsperado = f'{pelicula.titulo}'
         self.assertEqual(str(pelicula), nombreEsperado)
+
+    # Pruebas para campo de Codigo
 
     def testCodigoLabel(self):
         pelicula = Pelicula.objects.get(id=1)
