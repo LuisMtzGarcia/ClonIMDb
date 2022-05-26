@@ -17,6 +17,8 @@ class PeliculaModelTest(TestCase):
             portada='https://m.media-amazon.com/images/M/MV5BOWI2MDQ1ODItMjJjNS00MjY5LWJhZmItM2JkNTI0YzQ3OWE1XkEyXkFqcGdeQXVyMzcwOTM4NzY@._V1_.jpg',
             )
 
+    # Pruebas para modelo Pelicula
+
     # Pruebas para campo de Titulo
 
     def testTituloLabel(self):
