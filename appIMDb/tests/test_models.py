@@ -121,6 +121,19 @@ class PeliculaModelTest(TestCase):
         pelicula = Pelicula.objects.get(id=1)
         pluralEsperado = pelicula._meta.verbose_name_plural
         self.assertEqual(str(pelicula._meta.verbose_name_plural), pluralEsperado)
+
+    # Pruebas para la representacion en cadena del modelo
+
+    def testCadenaPelicula(self):
+        pelicula = Pelicula.objects.get(id=1)
+        cadenaEsperada = f"{pelicula.titulo}"
+        self.assertEqual(str(pelicula), cadenaEsperada)
+
+    def testCadenaLargaPelicula(self):
+        pelicula = Pelicula.objects.get(id=1)
+        pelicula.titulo = "Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan"
+        cadenaEsperada = f"{pelicula.titulo[:50]}..."
+        self.assertEqual(str(pelicula), cadenaEsperada)
 """
 class TestClass(TestCase):
 
