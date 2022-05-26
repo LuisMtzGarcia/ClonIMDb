@@ -20,4 +20,6 @@ urlpatterns = [
     path('review/<int:pelicula_id>/', views.nuevaReview, name='nuevaReview'),
     # Pagina para editar una review.
     path('review/editar/<int:review_id>/', views.editarReview, name='editarReview'),
+    # Pagina para borrar una review.
+    path('review/borrar/<int:review_id>/', views.borrarReview, name='borrarReview'),
 ]

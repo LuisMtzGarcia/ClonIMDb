@@ -143,10 +143,13 @@ def borrarReview(request, review_id):
     """Elimina una review existente."""
     review = get_object_or_404(Review, id=review_id)
 
-    pelicula = review.pelicula
-    # Verifica que la review por editar sea del usuario.
-    if review.usuario == request.user:
+    pelicula = get_object_or_404(Pelicula, id=review.pelicula.id)
+    # Verifica que la review por borrar sea del usuario.
+    if review.usuario.username == request.user.username:
         review.delete()
         return redirect('appIMDb:pelicula', pelicula_id=pelicula.id)
     else:
         raise PermissionDenied
+
+    context = {'pelicula': pelicula}
+    return render(request, 'appIMDb/borrarReview.html', context)
