@@ -27,6 +27,11 @@ class PeliculaModelTest(TestCase):
         maxLength = pelicula._meta.get_field('titulo').max_length
         self.assertEqual(maxLength, 100)
 
+    def testNombreObjectoEsTitulo(self):
+        pelicula = Pelicula.objects.get(id=1)
+        nombreEsperado = f'{pelicula.titulo}'
+        self.assertEqual(str(pelicula), nombreEsperado)
+
 """
 class TestClass(TestCase):
 
