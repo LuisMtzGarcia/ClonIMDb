@@ -68,6 +68,18 @@ class PeliculaModelTest(TestCase):
         pelicula = Pelicula.objects.get(id=1)
         generoEsperado = f'{pelicula.genero}'
         self.assertEqual(str(pelicula.genero), generoEsperado)
+
+    # Pruebas para campo de Anio
+
+    def testAnioLabel(self):
+        pelicula = Pelicula.objects.get(id=1)
+        fieldLabel = pelicula._meta.get_field('anio').verbose_name
+        self.assertEqual(fieldLabel, 'anio')
+
+    def testCadenaAnio(self):
+        pelicula = Pelicula.objects.get(id=1)
+        anioEsperado = f'{pelicula.anio}'
+        self.assertEqual(str(pelicula.anio), anioEsperado)
 """
 class TestClass(TestCase):
 
