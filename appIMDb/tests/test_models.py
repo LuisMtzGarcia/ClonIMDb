@@ -114,6 +114,13 @@ class PeliculaModelTest(TestCase):
         pelicula = Pelicula.objects.get(id=1)
         portadaEsperado = f'{pelicula.portada}'
         self.assertEqual(str(pelicula.portada), portadaEsperado)
+
+    # Prueba para nombre plural
+
+    def testPluralName(self):
+        pelicula = Pelicula.objects.get(id=1)
+        pluralEsperado = pelicula._meta.verbose_name_plural
+        self.assertEqual(str(pelicula._meta.verbose_name_plural), pluralEsperado)
 """
 class TestClass(TestCase):
 
