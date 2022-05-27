@@ -178,3 +178,19 @@ En este, podran encontrar informacion y explicaciones mas detalladas de las aqui
 > 4. Si asi es, elimina la Review y redireccionna al view `pelicula` con el ID del objeto Pelicula previamente recuperado.
 > 4a. De no ser asi, se levanta `PermissionDenied`
 > No cuenta con un template.
+
+--- 
+
+## Forms
+
+Documentacion de la Form principal de la aplicacion.
+
+### ReviewForm
+> Este formulario se utiliza para realizar una Review.
+> Cuenta con los siguientes campos:
+> * **Pelicula**:
+> Una relacion a un objeto Pelicula
+> * **Texto**:
+> El texto de la Review
+> * **Calificacion**:
+> Un numero entero mayor o igual a 0 y menor o igual a 10.
