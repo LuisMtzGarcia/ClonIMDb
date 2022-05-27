@@ -1,1 +1,1 @@
-web: gunicorn clon_imdb.wsgi --log-file
+web: gunicorn clon_imdb.wsgi --log-file -
