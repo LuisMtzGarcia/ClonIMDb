@@ -1,7 +1,32 @@
 # Clon IMDb creado con Django
+
+[Aqui pueden visitar la WebApp](https://clonimdb.herokuapp.com/)
+
+# Caracteristicas
+
 Esta WebApp que cumple con las siguientes caracteristicas:
+
+* **Mostrar un listado de todas las peliculas en el sitio**:
+    Se muestra una lista de todas las peliculas disponibles, cada elemento de la lista es un link a una pagina con los detalles de la pelicula.
+
+[![Listado de peliculas](https://i.imgur.com/diipn3h.png)](https://clonimdb.herokuapp.com/peliculas/)
+
+---
+
+* **Mostrar un listado de generos disponibles**:
+    Se muestra una lista de generos registrados en el sitio. Cada genero es un link a un listado de las peliculas vinculadas a tal genero.
+
+[![Listado de generos](https://i.imgur.com/nWd4Cl4.png)](https://clonimdb.herokuapp.com/generos/)
+
+---
+
 * **Mostrar un listado de peliculas por genero**:
     El usuario selecciona  un genero del que le gustaria ver todas  las peliculas disponibles, y se muestra un  listado con estas peliculas. Cada una es un link para entrar a la pagina de detalles individual.
+
+[![Listado de peliculas por genero](https://i.imgur.com/XGphD7b.png)](https://clonimdb.herokuapp.com/generos/3/)
+
+---
+
 * **Pagina que muestra los detalles de una pelicula**:
     En esta pagina, el usuario podra observar los diferentes campos que contiene una pelicula, como lo son:
     1. Titulo
@@ -14,12 +39,21 @@ Esta WebApp que cumple con las siguientes caracteristicas:
     7. Codigo IMDb
     Este ultimo  hace referencia al id unico que IMDb otorga a cada pelicula.
 
+[![Pagina Pelicula](https://i.imgur.com/kQeC1O5.png)](https://clonimdb.herokuapp.com/peliculas/2/)
+
+---
+
 * **Funcion de reviews y calificaciones**:
 Los usuarios  pueden  dejar reviews y calificaciones a  las peliculas que deseen.
 Cada review viene acompaniada de una calificacion del 1 al 10. Los usuarios solo pueden dejar un review/calificacion por pelicula.
 Esta funcion de reviews tambien incluye la funcion de editar algun review realizado anteriormente, asi como eliminar la review que hallan hecho.
+
+---
+
 * **Funcion de favoritos**:
 Los usuarios pueden marcar pueden agregar (y eliminar de) las peliculas que gusten a su lista de favoritos, asimismo, pueden accesar esta lista y visualizar las peliculas que han marcado como favoritas.
+
+![Favoritos](https://i.imgur.com/y6yaHZx.png)
 
 ---
 # Documentacion
