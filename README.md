@@ -194,3 +194,76 @@ Documentacion de la Form principal de la aplicacion.
 > El texto de la Review
 > * **Calificacion**:
 > Un numero entero mayor o igual a 0 y menor o igual a 10.
+
+---
+
+## Set de pruebas unitarias
+
+Documentacion de las pruebas unitarias de la aplicacion.
+
+## Pruebas de Modelos
+
+### Test Genero
+* **testNombreLabel**:
+> Comprueba que la etiqueta del campo `nombre` sea igual que cadena `nombre`
+
+* **testNombreMaxLength**:
+> Comprueba que el numero maximo de caracteres permitido en el campo `nombre` sea igual a 50.
+
+* **testPluralName**:
+> Comprueba que la cadena representacion en Plural de Genero sea igual a la cadena `genneros`.
+
+* **testCadenaGenero**:
+> Comprueba que la cadena representacion de objeto Genero sea igual al valor almacenado en el campo `nombre`.
+
+### Test Pelicula
+* **testTituloLabel**:
+> Comprueba que la etiqueta del campo `titulo` sea igual a la cadena `titulo`.
+
+* **testTituloMaxLength**:
+> Comprueba que el numero maximo de caracteres permitido en el campo `titulo` sea igual a 100.
+
+* **testNombreObjetoEsTitulo**:
+> Comprueba que la cadena representacion de objeto Pelicula sea igual al valor almacenado en `titulo`.
+
+* **testCodigoLabel**:
+> Comprueba que la etiqueta del campo `codigo` sea igual a la cadena `codigo`.
+
+* **testCodigoMaxLength**:
+> Comprueba que el numero maximo de caracteres permitido en el campo `codigo` sea igual a 10.
+
+* **testCadenaCodigo**:
+> Comprueba que la representacion en cadena del campo `cadena` sea igual al valor almacenado en `cadena`.
+
+* **testGeneroLabel**:
+> Comprueba que la etiqueta del campo `genero` sea igual a la cadena `genero`.
+
+* **testGeneroMaxLength**:
+> Comprueba que el numero maximo de caracteres permitido en el campo `nombre` del objeto Genero al que esta vinculado sea igual a 50.
+
+* **testCadenaGenero**:
+> Comprueba que la representacion en cadena del campo `genero` sea igual al campo `nombre` del objeto Genero.
+
+* **testAnioLabel**:
+> Comprueba que la etiqueta del campo `anio` sea igual a la cadena `anio`.
+
+* **testCadenaAnio**:
+> Comprueba que la representacion en cadena del campo `anio` sea igual al valor almacenado en `anio`, convertido a cadena.
+
+* **testPortadaLabel**:
+> Comprueba que la etiqueta del campo `portada` sea igual a la cadena `portada`.
+
+* **testPortadaMaxLength**:
+> Comprueba que el numero maximo de caracteres permitido en el campo `portada` sea igual a 200.
+
+* **testCadenaPortada**:
+> Comprueba que la representacion en cadena del campo `portada` sea igual al valor almacenado en `portada`.
+
+* **testPluralName**:
+> Comprueba que la representacion en cadena del nombre en plural del objeto sea igual a `peliculas`.
+
+* **testCadenaPelicula**:
+> Comprueba que la representacion en cadena del objeto Pelicula sea igual al valor almacenado en el campo `titulo`.
+
+* **testCadenaLargaPelicula**:
+> Comprueba que si el `titulo` de la pelicula supera los 50 caracteres, solo se muestren los primeros 50, seguidos de 3 puntos suspensivos.
