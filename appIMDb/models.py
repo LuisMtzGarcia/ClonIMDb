@@ -116,6 +116,9 @@ class Review(models.Model):
 
     fecha = models.DateField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = 'reviews'
+
     def __str__(self):
         """Regresa una representacion en cadena de la review."""
 
