@@ -12,14 +12,11 @@
 
 {% block content %}
 
-    <!-- This section of the site displays the stories in Bootstrap4's card format -->
     {% for pelicula in peliculas %}
-        <div class="card mb-3"><!-- Done -->
+        <div class="card mb-3">
             <div class="row g-0 no-gutters">
                 <div class="col-md-3">
-                    <!-- The image links to the individual story page -->
                     <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
-                        <!-- The image displayed at the left  of the card -->
                         <img src="{{ pelicula.portada }}" 
                             class="rounded-start responsive"
                             alt="Portada"
@@ -31,31 +28,26 @@
                     <h4 class="card-header">
                         <div class="row">
                             <div class="col">
-                                <!-- A link to the story, using the title of the story -->
                                 <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
                                     {{ pelicula }}
                                 </a>                                
                             </div>
                             <div class="col">
-                                <!-- The date the story was added to the database -->
                                 <small class="text-muted" style="float:right">
                                     {{ pelicula.anio }}
                                 </small>
                             </div>
                         </div>
                     </h4>
-                    <!-- The body of the card, displays the genre and the synopsis -->
                     <div class="card-body overflow-scroll">
-                        <!-- The synopsis of the story -->
                         {{ pelicula.sinopsis|linebreaks }}
                     </div>
                 </div>
             </div>
         </div>
 
-    <!-- This message is displayed in case the story database is empty -->
     {% empty %}
-        <p>Aún no se ha publicado ningún cuento.</p>
+        <p>Aún no se ha registrado ninguna pelicula de este genero.</p>
     {% endfor %}
 
 {% endblock content %}
