@@ -5,7 +5,8 @@
     <title>Pelicula</title>
   </head>
 
-  <body>
+
+  <body style="background-color: #1C1C1C; color: white;">
     {% extends "appIMDb/base.html" %}
 
     {% block page_header %}
@@ -15,6 +16,9 @@
           {{ pelicula }}
         </div>
       </h1>
+      <div class="text-center text-muted">
+        {{ pelicula.anio }}
+      </div>
 
     {% endblock page_header %}
 
@@ -50,8 +54,6 @@
         <p>Id IMDb: {{ pelicula.codigo }}</p>
 
         <p>Genero: {{ pelicula.genero }}</p>
-
-        <p>Anio de lanzamiento: {{ pelicula.anio }}</p>
 
         <p>Sinopsis: {{ pelicula.sinopsis }}</p>
 
