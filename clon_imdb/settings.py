@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'appIMDb',
     'users',
     'rest_framework',
+    'bootstrap5',
 
     # Apps default de Django
     'django.contrib.admin',
