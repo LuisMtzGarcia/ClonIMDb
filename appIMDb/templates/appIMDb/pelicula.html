@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <title>Pelicula</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .checked {
+        color: orange;
+      }
+    </style>
   </head>
 
 
@@ -10,14 +16,37 @@
     {% extends "appIMDb/base.html" %}
 
     {% block page_header %}
-      
-      <h1 class="display-2">
-        <div class="text-center fw-bold">
-          {{ pelicula }}
+
+      <div class="header">
+        <div class="content">
+          <div class="image">
+            <img style="width: 35vh; height: auto;" 
+              src="{{ pelicula.portada }}" 
+              alt="Portada">
+          </div>
+          <div class="text">
+            <div class="title">
+              <div class="main">
+                {{ pelicula }}
+              </div>
+              <div class="subtext">
+                {{ pelicula.anio }}
+              </div>
+            </div>
+            <div class="rating">
+              <div class="fa fa-star checked">
+                {{ calificacion }} / 10
+              </div>
+            </div>
+            <div class="genero">
+              <a href="{% url 'appIMDb:genero' pelicula.genero.id %}"
+                class="btn btn-primary btn-sm"
+                role="button">
+                {{ pelicula.genero }}
+              </a>
+            </div>
+          </div>
         </div>
-      </h1>
-      <div class="text-center text-muted">
-        {{ pelicula.anio }}
       </div>
 
     {% endblock page_header %}
@@ -41,7 +70,7 @@
         {% endif %}
 
         {% if calificacion %}
-          <p>Calificacion: {{ calificacion }}</p>
+          <span class="fa fa-star checked"> {{ calificacion }} / 10</span>
         {% else %}
           <p>
             Nadie ha calificado esta pelicula, 
