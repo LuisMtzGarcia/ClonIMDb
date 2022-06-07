@@ -8,24 +8,32 @@
   <body>
     {% extends "appIMDb/base.html" %}
 
+    {% block page_header %}
+      
+      <h1 class="display-2">
+        <div class="text-center fw-bold">
+          {{ pelicula }}
+        </div>
+      </h1>
+
+    {% endblock page_header %}
+
     {% block content %}
-    
-        <p>Pelicula: {{ pelicula }}</p>
 
         {% if user.is_authenticated %}
           {% if favFlag %}
-            <a href="{% url 'users:marcarFav' pelicula.id %}">
+            <a class="btn btn-danger btn-sm"
+              role="button" 
+              href="{% url 'users:marcarFav' pelicula.id %}">
               Eliminala de tus favoritos
             </a>
           {% else %}
-            <a href="{% url 'users:marcarFav' pelicula.id %}">
+            <a class="btn btn-primary btn-sm"
+              role="button"
+              href="{% url 'users:marcarFav' pelicula.id %}">
               Marcala como de tus favoritas
             </a>
           {% endif %}
-        {% else %}
-            <a href="{% url 'users:registro' %}">
-              Registrate para guardar tus pelis favoritas
-            </a>
         {% endif %}
 
         {% if calificacion %}
