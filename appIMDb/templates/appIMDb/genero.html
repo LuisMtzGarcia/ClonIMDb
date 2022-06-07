@@ -1,23 +1,61 @@
 {% extends 'appIMDb/base.html' %}
 
-{% block content %}
+{% block page_header %}
 
-    <h1 class="titulo-genero">
-        {{ genero }}
+    <h1 class="display-2">
+        <div class="text-center fw-bold">
+            {{ genero }}
+        </div>
     </h1>
 
-    <ul>
-        {% for pelicula in peliculas %}
-            <li>
-                <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
-                    {{ pelicula }}
-                </a>
-            </li>
-        {% empty %}
-            <li>
-                Aun no se han registrado peliculas para este genero.
-            </li>
-        {% endfor %}
-    </ul>
+{% endblock page_header %}
+
+{% block content %}
+
+    <!-- This section of the site displays the stories in Bootstrap4's card format -->
+    {% for pelicula in peliculas %}
+        <div class="card mb-3"><!-- Done -->
+            <div class="row g-0 no-gutters">
+                <div class="col-md-3">
+                    <!-- The image links to the individual story page -->
+                    <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
+                        <!-- The image displayed at the left  of the card -->
+                        <img src="{{ pelicula.portada }}" 
+                            class="rounded-start responsive"
+                            alt="Portada"
+                            style="max-width: 35vh;">
+                    </a>
+                    
+                </div>
+                <div class="col">
+                    <h4 class="card-header">
+                        <div class="row">
+                            <div class="col">
+                                <!-- A link to the story, using the title of the story -->
+                                <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
+                                    {{ pelicula }}
+                                </a>                                
+                            </div>
+                            <div class="col">
+                                <!-- The date the story was added to the database -->
+                                <small class="text-muted" style="float:right">
+                                    {{ pelicula.anio }}
+                                </small>
+                            </div>
+                        </div>
+                    </h4>
+                    <!-- The body of the card, displays the genre and the synopsis -->
+                    <div class="card-body overflow-scroll">
+                        <!-- The synopsis of the story -->
+                        {{ pelicula.sinopsis|linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- This message is displayed in case the story database is empty -->
+    {% empty %}
+        <p>Aún no se ha publicado ningún cuento.</p>
+    {% endfor %}
 
 {% endblock content %}
