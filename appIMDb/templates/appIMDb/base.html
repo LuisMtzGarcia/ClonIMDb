@@ -1,8 +1,15 @@
+{% load bootstrap5 %}
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
     {% load static %}
+    <title>Clon IMDb</title>
     <link rel="stylesheet" href="{% static 'appIMDb/styles.css' %}">
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
   </head>
 
   <body>
