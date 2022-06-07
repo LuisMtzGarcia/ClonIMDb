@@ -1,6 +1,22 @@
 # Clon IMDb creado con Django
 
-[Aqui pueden visitar la WebApp](https://clonimdb.herokuapp.com/)
+Este proyecto es un Fork de mi repositorio /pruebaJB/ que, como su nombre indica, empezo como una prueba para una postulacion.
+Se crea este Fork con el fin de continuar el proyecto sin modificar el repositorio anterior.
+
+### Cosas por hacer
+
+- [ ] Implementar una barra de navegacion al estilo Bootstrap.
+- [ ] Implementar un motor de busqueda.
+- [ ] Implementar funciones adicionales relacionadas al codigo iD de IMDb.
+- [ ] Estilizar la pagina de Generos.
+- [ ] Estilizar la pagina de Peliculas.
+- [ ] Estilizar la pagina de Pelicula Individual.
+- [ ] Estilizar formulario de Review.
+- [ ] Implementar formulario para registrar Peliculas como Admin.
+- [ ] Estilizar formulario de Admin.
+- [ ] Estilizar Landing Page.
+- [ ] Estilizar formulario de registro de Usuario.
+- [ ] Estilizar pagina de inicio de sesion.
 
 # Caracteristicas
 
