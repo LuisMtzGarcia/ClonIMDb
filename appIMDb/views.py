@@ -58,7 +58,7 @@ def pelicula(request, pelicula_id):
 def generos(request):
     """Muestra todos los generos de peliculas disponibles."""
 
-    generos = Genero.objects.all()
+    generos = Genero.objects.order_by('nombre')
 
     context = {'generos': generos}
     return render(request, 'appIMDb/generos.html', context)
