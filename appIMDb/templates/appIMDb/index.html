@@ -17,7 +17,6 @@
           <p class="lead mb-4">
             Clon de IMDb creado usando Python, Django y Bootstrap.
           </p>
-          {% if user.is_authenticated %}
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
               <a class="btn btn-lg btn-primary px-4 gap-3" 
                 href="{% url 'appIMDb:peliculas' %}"
@@ -30,7 +29,6 @@
                 Wacha los generos
               </a>
             </div>
-          {% endif %}
         </div>
       </div>
     {% endblock page_header %}
