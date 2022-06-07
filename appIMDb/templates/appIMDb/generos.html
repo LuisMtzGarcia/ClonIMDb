@@ -1,17 +1,26 @@
 {% extends 'appIMDb/base.html' %}
 
+{% block page_header %}
+    <h1 class="display-2">
+        <div class="fw-bold" style="text-align: center;">
+            Generos
+        </div>
+    </h1>
+{% endblock page_header %}
+
 {% block content %}
 
-    {% for genero in generos %}
-        <h1>
-            <a href="{% url 'appIMDb:genero' genero.id %}">
+    <div class="list-group">
+        {% for genero in generos %}
+            <a href="{% url 'appIMDb:genero' genero.id %}"
+                class="list-group-item list-group-item-action text-center display-6">
                 {{ genero }}
             </a>
-        </h1>
-    {% empty %}
-        <p>
-            Aun no se ha registrado algun genero.
-        </p>
-    {% endfor %}
+        {% empty %}
+            <p class="list-group-item list-group-item-action text-center display-6">
+                Aun no se ha registrado ningun genero.
+            </p>
+        {% endfor %}
+    </div>
 
 {% endblock content %}
