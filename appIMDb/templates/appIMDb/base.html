@@ -22,7 +22,10 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
     style="background-color: #1F2937;">
-      <a class="navbar-brand" href="{% url 'appIMDb:index' %}">Clon IMDb</a>
+      <a class="navbar-brand" href="{% url 'appIMDb:index' %}" 
+        style="padding-left: 1vh;">
+        Clon IMDb
+      </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent" 
@@ -79,8 +82,15 @@
       </div>
     </nav>
 
-      {% block content %}{% endblock content %}
-
-
+    <main role="main" class="container">
+      <div class="pb-2 mb-2 border-bottom" style="padding-top: 60px;">
+          {% block page_header %}
+          {% endblock page_header %}
+      </div>
+      <div>
+          {% block content %}
+          {% endblock content %}
+      </div>
+  </main>
   </body>
 </html>
