@@ -2,15 +2,40 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <title>clonIMdb</title>
+    <title>Clon IMDb</title>
   </head>
 
   <body>
     {% extends "appIMDb/base.html" %}
 
+    {% block page_header %}
+      <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold text-center">
+          Clon IMDb
+        </h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            Clon de IMDb creado usando Python, Django y Bootstrap.
+          </p>
+          {% if user.is_authenticated %}
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <a class="btn btn-lg btn-primary px-4 gap-3" 
+                href="{% url 'appIMDb:peliculas' %}"
+                role="button">
+                Wacha las pelis
+              </a>
+              <a class="btn btn-lg btn-primary px-4 gap-3" 
+                href="{% url 'appIMDb:peliculas' %}"
+                role="button">
+                Wacha los generos
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endblock page_header %}
+
     {% block content %}
-    <h1>Clon de IMDb</h1>
-    <p>Esta pagina es una base de datos similar a IMDb.</p>
     {% endblock content %}
   </body>
 </html>
