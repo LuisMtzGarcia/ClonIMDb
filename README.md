@@ -5,16 +5,16 @@ Se crea este Fork con el fin de continuar el proyecto sin modificar el repositor
 
 ### Cosas por hacer
 
-- [ ] Implementar una barra de navegacion al estilo Bootstrap.
+- [x] Implementar una barra de navegacion al estilo Bootstrap.
 - [ ] Implementar un motor de busqueda.
 - [ ] Implementar funciones adicionales relacionadas al codigo iD de IMDb.
-- [ ] Estilizar la pagina de Generos.
-- [ ] Estilizar la pagina de Peliculas.
-- [ ] Estilizar la pagina de Pelicula Individual.
-- [ ] Estilizar formulario de Review.
+- [x] Estilizar la pagina de Generos.
+- [x] Estilizar la pagina de Peliculas.
+- [x] Estilizar la pagina de Pelicula Individual.
+- [x] Estilizar formulario de Review.
 - [ ] Implementar formulario para registrar Peliculas como Admin.
 - [ ] Estilizar formulario de Admin.
-- [ ] Estilizar Landing Page.
+- [x] Estilizar Landing Page.
 - [ ] Estilizar formulario de registro de Usuario.
 - [ ] Estilizar pagina de inicio de sesion.
 
