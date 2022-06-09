@@ -89,7 +89,7 @@ class Review(models.Model):
 
     pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
 
-    texto = models.TextField(null=True)
+    texto = models.TextField(null=True, blank=True)
     # No tiene un limite actual, pero considerare un limite.
 
     calificacion = models.PositiveSmallIntegerField(validators=[MinValueValidator(0),
