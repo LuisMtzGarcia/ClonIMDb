@@ -12,7 +12,7 @@ def index(request):
 
 def peliculas(request):
     """ Muestra todas las peliculas. """
-    peliculas = Pelicula.objects.order_by('titulo')
+    peliculas = Pelicula.objects.order_by('-anio')
 
     context = {'peliculas': peliculas}
     return render(request, 'appIMDb/peliculas.html', context)
