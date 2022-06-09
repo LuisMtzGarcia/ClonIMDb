@@ -2,6 +2,11 @@
     border: 1px solid red;
 } */
 
+body {
+    background-color: #1C1C1C;
+    color: white;
+}
+
 .poster {
     max-width: 300px;
     max-height: auto;
