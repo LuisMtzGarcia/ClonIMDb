@@ -12,20 +12,77 @@
 {% endblock page_header %}
 
 {% block content %}
-
-    <a href="{% url 'appIMDb:borrarReview' review.id %}">
-        Eliminar Review
-    </a>
+    
+    <div class="d-grid gap-2 d-md-block text-center btn-group" role="group"
+        aria-label="Function buttons">
+        <a href="{% url 'appIMDb:borrarReview' review.id %}"
+            class="btn btn-danger btn-sm mb-5">
+            Eliminar review
+        </a>
+    </div>
 
 
     <p>
         Editar review:
     </p>
 
-    <form action="{% url 'appIMDb:editarReview' review.id %}" method="post">
+    <form action="{% url 'appIMDb:editarReview' review.id %}" method="POST"
+        style="width: 80ch; margin: auto;">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Guardar cambios</button>
+
+        {{ form.non_fields_errors }}
+        <div class="mb-3">
+            {{ form.pelicula.errors }}
+            <label for="{{ form.pelicula.id_pelicula }}" class="form-label">
+                Pelicula:
+            </label>
+            {{ form.pelicula }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.texto.errors }}
+            <label for="{{ form.texto.id_texto }}" class="form-label">
+                Review:
+            </label>
+            <textarea class="form-control" id="{{ form.texto.id_texto }}"
+                rows="3" name="texto">{{ form.texto.value }}</textarea>
+            <small class="form-text">
+                La review es opcional, igual puedes solo votar.
+            </small>
+        </div>
+
+        <div class="mb-3">
+            {{ form.calificacion.errors }}
+            <label for="{{ form.calificacion.id_calificacion }}" 
+                class="form-label">
+                Calificacion:
+            </label>
+            <select name="calificacion" class="form-control"
+                id="{{ form.calificacion.id_calificacion }}" required>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+            </select>
+        </div>
+
+        <div class="d-grid gap-2 d-md-block text-center btn-group" role="group"
+            aria-label="Function buttons">
+            <button name="submit" type="submit" class="btn btn-success btn-lg mt-5">
+                Guardar cambios
+            </button>
+            <a href="{% url 'appIMDb:pelicula' pelicula.id %}" 
+                class="btn btn-danger btn-lg mt-5">
+                Cancelar
+            </a>
+        </div>
     </form>
 
 {% endblock content %}
