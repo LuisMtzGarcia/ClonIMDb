@@ -153,3 +153,7 @@ body {
 .top-review .review-rating {
     align-self: flex-end;
 }
+
+.card-body {
+    color: black;
+}
