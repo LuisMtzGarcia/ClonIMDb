@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 .poster {
     max-width: 300px;
@@ -111,5 +111,40 @@
 .information {
     display: flex;
     flex: 1;
+    flex-direction: row;
+    gap: 8em;
+    justify-content: space-between;
+}
+
+.information .sinopsis {
+    max-width: 79ch;
+    align-self: flex-start;
+}
+
+.review {
+    display: flex;
     flex-direction: column;
+    flex: 1;
+    width: 60vh;
+    max-width: 60vh;
+    gap: 2px;
+}
+
+.reviews .review {
+    border: 1px solid gray;
+    padding: 1em;
+}
+
+.top-review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.top-review .usuario {
+    font-weight: bold;
+}
+
+.top-review .review-rating {
+    align-self: flex-end;
 }

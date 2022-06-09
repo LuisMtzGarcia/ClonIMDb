@@ -82,33 +82,42 @@
 
       <div class="information">
         <div class="sinopsis">
-
+          {{ pelicula.sinopsis|linebreaks }}
         </div>
+        
         <div class="reviews">
-
+          <div class="hacer-review d-grid">
+            <a href="{% url 'appIMDb:nuevaReview' pelicula.id %}"
+              class="btn btn-outline-secondary btn-sm"
+              role="button">
+              Deja una review
+            </a>
+          </div>
+          {% for review in reviews %}
+          <div class="review">
+            <div class="top-review">
+              <div class="usuario">
+                {{ review.usuario }}:
+              </div>
+              <div class="review-rating">
+                <div class="fa fa-star checked">
+                  {{ review.calificacion }} / 10
+                </div>
+              </div>
+            </div>
+            {% if review.texto %}
+              <div class="review-texto">
+                {{ review.texto }}
+              </div>
+            {% endif %}
+          </div>
+          {% empty %}
+            <p>
+              Nadie ha dejado una review.
+            </p>
+          {% endfor %}
         </div>
       </div>
-
-        <p>Sinopsis: {{ pelicula.sinopsis }}</p>
-
-        {% if user.is_authenticated %}
-            <p>Que piensas sobre esta pelicula?</p>
-            <a href="{% url 'appIMDb:nuevaReview' pelicula.id %}">Escribe una review!</a>
-        {% else %}
-            <p>Quieres darnos tu opinion? Entra a tu cuenta y cuentanos!</p>
-            <a href="{% url 'users:registro' %}">Registrate</a> - 
-            <a href="{% url 'users:login' %}">Accede a tu cuenta</a>
-        {% endif %}
-        
-        <br>
-
-        <p>Reviews:</p>
-        {% for review in reviews %}
-        <p>Usuario: {{ review.usuario }}</p>
-        {{ review.texto }}
-        {% empty %}
-        <p>Todavia no hay ninguna review</p>
-        {% endfor %}
 
     {% endblock content %}
   </body>
