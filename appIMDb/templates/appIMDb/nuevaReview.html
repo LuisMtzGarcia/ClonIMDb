@@ -1,12 +1,19 @@
 {% extends 'appIMDb/base.html' %}
 
-{% block content %}
+{% block page_header %}
 
-    <h1 class="titulo-peli">
-        <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
-            {{ pelicula }}
-        </a>
+    <h1 class="display-5">
+        <div class="text-center fw-bold">
+            <a href="{% url 'appIMDb:pelicula' pelicula.id %}"
+                style="text-decoration: none;">
+                {{ pelicula }}
+            </a>
+        </div>
     </h1>
+
+{% endblock page_header %}
+
+{% block content %}
 
     <p>Escribe una review: </p>
     <form action="{% url 'appIMDb:nuevaReview' pelicula.id %}" method="post">
