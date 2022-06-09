@@ -1,3 +1,7 @@
+* {
+    border: 1px solid red;
+}
+
 .poster {
     max-width: 300px;
     max-height: auto;
@@ -6,4 +10,106 @@
 .titulo-peli, .titulo-genero {
     text-align: center;
     text-decoration: none;
+}
+
+.subtext {
+    color: #E5E7EB;
+    font-size: 18px;
+}
+
+.bottom-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    gap: 2em;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4em;
+    padding-bottom: 4em;
+    padding-top: 4em;
+    width: 100%;
+}
+
+.banner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    padding: 1em;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.logo, .main {
+    color: #F9FAF8;
+}
+
+.links {
+    display: flex;
+    gap: 2em;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 80%;
+    flex: 1;
+    gap: 2em;
+}
+
+.text {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    gap: 2em;
+}
+
+.main {
+    font-size: 75px;
+    font-weight: bold;
+    max-width: 75%;
+}
+
+.content .image {
+    height: auto;
+    background-color: grey;
+    display: flex;
+    flex: 0;
+    justify-content: center; /* Main axis */
+    align-items: center; /* cross axis */
+    color: white;
+    flex-shrink: 1;
+}
+
+.content .image {
+    max-width: 100vh;
+    height: auto;
+}
+
+.information {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
 }

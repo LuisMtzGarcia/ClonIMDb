@@ -33,17 +33,44 @@
                 {{ pelicula.anio }}
               </div>
             </div>
-            <div class="rating">
-              <div class="fa fa-star checked">
-                {{ calificacion }} / 10
+            <div class="bottom-title">
+              <div class="rating">
+                {% if calificacion %}
+                  <div class="fa fa-star checked">
+                    {{ calificacion }} / 10
+                  </div>
+                {% else %}
+                  <a href="{% url 'appIMDb:nuevaReview' pelicula.id %}"
+                    class="btn btn-outline-primary btn-sm fa fa-star"
+                    role="button">
+                    Se el primero en calificarla
+                  </a>
+                {% endif %}
               </div>
-            </div>
-            <div class="genero">
-              <a href="{% url 'appIMDb:genero' pelicula.genero.id %}"
-                class="btn btn-primary btn-sm"
-                role="button">
-                {{ pelicula.genero }}
-              </a>
+              <div class="favorito">
+                {% if user.is_authenticated %}
+                  {% if favFlag %}
+                    <a href="{% url 'users:marcarFav' pelicula.id %}"
+                      class="btn btn-danger btn-sm"
+                      role="button">
+                      Quitala de tus favoritos
+                    </a>
+                  {% else %}
+                    <a href="{% url 'users:marcarFav' pelicula.id %}"
+                      class="btn btn-primary btn-sm"
+                      role="button">
+                      Agregala a tus favoritos
+                    </a>
+                  {% endif %}
+                {% endif %}
+              </div>
+              <div class="genero">
+                <a href="{% url 'appIMDb:genero' pelicula.genero.id %}"
+                  class="btn btn-primary btn-sm"
+                  role="button">
+                  {{ pelicula.genero }}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -53,36 +80,14 @@
 
     {% block content %}
 
-        {% if user.is_authenticated %}
-          {% if favFlag %}
-            <a class="btn btn-danger btn-sm"
-              role="button" 
-              href="{% url 'users:marcarFav' pelicula.id %}">
-              Eliminala de tus favoritos
-            </a>
-          {% else %}
-            <a class="btn btn-primary btn-sm"
-              role="button"
-              href="{% url 'users:marcarFav' pelicula.id %}">
-              Marcala como de tus favoritas
-            </a>
-          {% endif %}
-        {% endif %}
+      <div class="information">
+        <div class="sinopsis">
 
-        {% if calificacion %}
-          <span class="fa fa-star checked"> {{ calificacion }} / 10</span>
-        {% else %}
-          <p>
-            Nadie ha calificado esta pelicula, 
-            <a href="{% url 'appIMDb:nuevaReview' pelicula.id %}">
-               se el primero!
-            </a>
-          </p>
-        {% endif %}
+        </div>
+        <div class="reviews">
 
-        <p>Id IMDb: {{ pelicula.codigo }}</p>
-
-        <p>Genero: {{ pelicula.genero }}</p>
+        </div>
+      </div>
 
         <p>Sinopsis: {{ pelicula.sinopsis }}</p>
 
@@ -96,11 +101,6 @@
         {% endif %}
         
         <br>
-        <img 
-        class="poster"
-        src="{{ pelicula.portada }}" 
-        alt="portada de la pelicula"
-        style="width: 300px; height: auto;">
 
         <p>Reviews:</p>
         {% for review in reviews %}
