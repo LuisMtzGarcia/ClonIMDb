@@ -157,3 +157,15 @@ body {
 .card-body {
     color: black;
 }
+
+.favoritos {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    gap: 2em;
+}
+
+.favoritos .titulo {
+    text-align: center;
+    font-size: 1em;
+}

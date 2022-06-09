@@ -1,18 +1,31 @@
 {% extends 'appIMDb/base.html' %}
 
+{% block page_header %}
+
+<h1 class="display-2">
+    <div class="text-center fw-bold">
+        Favoritos
+    </div>
+</h1>
+
+{% endblock page_header %}
+
 {% block content %}
-
-    <h1>Favoritos</h1>
-    <ul>
+    <div class="favoritos">
         {% for pelicula in peliculas %}
-            <li>
-                <a href="{% url 'appIMDb:pelicula' pelicula.id %}">{{ pelicula }}</a>
-            </li>
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
+                    <img src="{{ pelicula.portada }}" alt="Portada"
+                        class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <p class="card-text titulo">
+                        {{ pelicula.titulo }}
+                    </p>
+                </div>
+            </div>
         {% empty %}
-            <li>Aun no se han registrado ninguna pelicula.</li>
         {% endfor %}
-    </ul>
-
-
+    </div>
 
 {% endblock content %}
