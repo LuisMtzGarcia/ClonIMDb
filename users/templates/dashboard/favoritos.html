@@ -25,6 +25,10 @@
                 </div>
             </div>
         {% empty %}
+            <a href="{% url 'appIMDb:peliculas' %}"
+                class="btn btn-primary btn-lg">
+                Agrega peliculas a tus favoritos
+            </a>
         {% endfor %}
     </div>
 
