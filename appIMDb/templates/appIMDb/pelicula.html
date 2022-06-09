@@ -95,6 +95,7 @@
           </div>
           {% for review in reviews %}
           <div class="review">
+            {% if review.texto %}
             <div class="top-review">
               <div class="usuario">
                 {{ review.usuario }}:
@@ -105,10 +106,13 @@
                 </div>
               </div>
             </div>
-            {% if review.texto %}
-              <div class="review-texto">
-                {{ review.texto }}
-              </div>
+            <div class="review-texto">
+              {{ review.texto}}
+            </div>
+            {% else %}
+              <p>
+                Nadie ha escrito una review.
+              </p>
             {% endif %}
           </div>
           {% empty %}
