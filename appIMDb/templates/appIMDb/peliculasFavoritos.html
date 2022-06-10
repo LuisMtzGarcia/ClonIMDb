@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Peliculas</title>
+  </head>
+
+  <body>
+    {% extends "appIMDb/base.html" %}
+
+    {% block page_header %}
+
+    <div class="text-center">
+        <h1 class="display-2 fw-bold">
+          Peliculas
+        </h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead">
+            Ordenadas por el numero de usuarios que las ha marcado como favoritas,
+             de mayor a menor.
+          </p>
+        </div>
+        <div class="d-grid gap-2 d-md-block text-center btn-group" role="group"
+            aria-label="Sorting buttons">
+            <a href="{% url 'appIMDb:peliculas' %}"
+                class="btn btn-outline-primary btn-sm mt-2">
+                Por Año
+            </a>
+    </div>
+      </div>
+      
+    {% endblock page_header %}
+
+    {% block content %}
+
+    <div class="favoritos">
+        {% for pelicula in peliculas %}
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'appIMDb:pelicula' pelicula.id %}">
+                    <img src="{{ pelicula.portada }}" alt="Portada"
+                        class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <p class="card-text titulo">
+                        {{ pelicula.titulo }}
+                    </p>
+                </div>
+            </div>
+        {% empty %}
+            <p>
+                Aún no se ha registrado ninguna pelicula.
+            </p>
+        {% endfor %}
+    </div>
+
+    {% endblock content %}
+  </body>
+</html>

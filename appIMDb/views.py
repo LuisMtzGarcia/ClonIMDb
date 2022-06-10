@@ -85,6 +85,30 @@ def peliculasRating(request):
     context = {'peliculas': peliculasCalificaciones}
     return render(request, 'appIMDb/peliculasRating.html', context)
 
+def peliculasFavorito(request):
+    """Muestra todas las peliculas, ordenadas por el numero de usuarios que las
+        ha marcado como favoritos, de mayor a menor."""
+
+    peliculas = Pelicula.objects.order_by('titulo')
+
+    # Dict para almacenar las peliculas y su numero de favoritos.
+    favoritosDict = {}
+
+    # Calcula el numero de favoritos por pelicula.
+    for pelicula in peliculas:
+        favoritosDict[pelicula] = 0
+        favoritos = pelicula.favoritos.all()
+        for favorito in favoritos:
+            favoritosDict[pelicula] += 1
+
+    # Organiza el dict de mayor a menor.
+    sortedFavoritos = dict(sorted(favoritosDict.items(),
+                                    key=lambda item: item[1],
+                                    reverse=True))
+
+    context = {'peliculas': sortedFavoritos.keys()}
+    return render(request, 'appIMDb/peliculasFavoritos.html', context)
+        
 
 
 def generos(request):

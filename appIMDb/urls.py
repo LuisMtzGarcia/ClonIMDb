@@ -15,6 +15,9 @@ urlpatterns = [
     # Pagina que muestra todas las peliculas ordenadas por calificacion, de mayor
     # a menor.
     path('peliculas/rating', views.peliculasRating, name='peliculasRating'),
+    # Pagina que muestra todas las peliculas ordenadas por el numero de usuarios
+    # que las ha marcado como favoritas, de mayor a menor.
+    path('peliculas/favoritos', views.peliculasFavorito, name='peliculasFavorito'),
     # Pagina que muestra todos los generos.
     path('generos/', views.generos, name='generos'),
     # Pagina que muestra todas las peliculas de un genero.
