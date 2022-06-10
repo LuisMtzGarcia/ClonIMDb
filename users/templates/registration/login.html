@@ -2,23 +2,50 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Iniciar sesión</title>
   </head>
 
   <body>
+
     {% extends "appIMDb/base.html" %}
+
+    {% block page_header %}
+
+      <h1 class="display-2">
+        <div class="text-center fw-bold">
+          Iniciar sesión
+        </div>
+      </h1>
+
+    {% endblock page_header %}
 
     {% block content %}
 
         {% if form.errors %}
-            <p>Tu usuario y/o contrasenia son incorrectos.</p>
+            <p>Tu usuario y/o contraseña son incorrectos.</p>
         {% endif %}
 
         <form method="post" action="{% url 'users:login' %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            
+            {{ form.non_fields_errors }}
+            <div class="mb-3">
+              {{ form.username.errors }}
+              <label for="{{ form.username.id_username }}" class="form-label">
+                Nombre de usuario:
+              </label>
+              {{ form.username }}
+            </div>
 
-            <button name="submit">Log in</button>
+            <div class="mb-3">
+              {{ form.password.errors }}
+              <label for="{{ form.password.id_password }}" class="form-label">
+                Contraseña:
+              </label>
+              {{ form.password }}
+            </div>
+
+            <button name="submit" class="btn btn-success">Iniciar sesión</button>
             <input type="hidden" name="next"
                 value="{% url 'appIMDb:index' %}"  />
         </form>
