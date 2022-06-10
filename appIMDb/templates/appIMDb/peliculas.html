@@ -15,6 +15,14 @@
           Peliculas
         </div>
       </h1>
+
+      <div class="d-grid gap-2 d-md-block text-center btn-group" role="group"
+          aria-label="Sorting buttons">
+          <a href="{% url 'appIMDb:peliculasRating' %}"
+            class="btn btn-outline-primary btn-sm mt-2">
+            Por Ratings
+          </a>
+      </div>
       
     {% endblock page_header %}
 
