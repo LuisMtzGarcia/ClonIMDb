@@ -79,6 +79,13 @@ Los usuarios pueden marcar pueden agregar (y eliminar de) las peliculas que gust
 ![Favoritos](https://i.imgur.com/gYTBQxo.png)
 
 ---
+
+* **Listado de peliculas ordenadas por el numero de usuarios que la han marcado como favoritas**:
+Un listado de todas las peliculas, ordenadas por el numero de usuarios que las han marcado como favoritas, de mayor a menor.
+
+![Peliculas favoritas](https://i.imgur.com/iGjTINM.png)
+
+---
 # Documentacion
 
 ## Modelos
@@ -197,8 +204,17 @@ En este, podran encontrar informacion y explicaciones mas detalladas de las aqui
 
 ### PeliculasRating
 > Esta View hace un Query de todos los objetos Pelicula registrados, calcula la calificacion de cada uno (en base a los ratings de cada Review registrada). 
-> Almacena las peliculas y sus respectivas en un diccionario de formato:
-> {pelicula: calificacion}
+> Almacena las peliculas y sus respectivas calificaciones en un diccionario de
+> formato: {pelicula: calificacion}
+> Obtiene los keys de este diccionario y lo pasa al template.
+
+### PeliculasFavorito
+> Esta View hace un Query de todos los objetos Pelicula registrados, y, por cada
+> objeto, hace un Query por los usuarios que han marcado tal pelicula como
+> favorita. Calcula el numero de usuarios que marcaron la pelicula como favorita
+> por cada pelicula del Query original.
+> Almacena las peliculas y sus respectivos numeros de usuarios en un diccionario
+> de formato: {pelicula: calificacion}
 > Obtiene los keys de este diccionario y lo pasa al template.
 
 ### Generos
