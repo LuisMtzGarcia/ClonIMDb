@@ -66,6 +66,13 @@ Esta funcion de reviews tambien incluye la funcion de editar algun review realiz
 
 ---
 
+* **Listado de peliculas ordenadas por su rating**:
+Un listado de todas las peliculas, ordenadas por su Rating, de mayor a menor.
+
+![Peliculas rating](https://i.imgur.com/bYsXG0J.png)
+
+---
+
 * **Funcion de favoritos**:
 Los usuarios pueden marcar pueden agregar (y eliminar de) las peliculas que gusten a su lista de favoritos, asimismo, pueden accesar esta lista y visualizar las peliculas que han marcado como favoritas.
 
@@ -187,6 +194,12 @@ En este, podran encontrar informacion y explicaciones mas detalladas de las aqui
 > 3a. En caso de que el QuerySet este vacio (no existan Reviews), la calificacion se representa como un valor `None`.
 > 4. Verifica si el Usuario que esta haciendo el request ha marcado (o no) la Pelicula como favorita. Se almacena un valor `True` o `False` en la variable `favFlag`.
 > 5. Se pasa el objeto Pelicula, el QuerySet de Reviews, la calificacion y la `favFlag` al template pelicula.html
+
+### PeliculasRating
+> Esta View hace un Query de todos los objetos Pelicula registrados, calcula la calificacion de cada uno (en base a los ratings de cada Review registrada). 
+> Almacena las peliculas y sus respectivas en un diccionario de formato:
+> {pelicula: calificacion}
+> Obtiene los keys de este diccionario y lo pasa al template.
 
 ### Generos
 > Esta view hace un Query de todos los objetos Genero registrados.
