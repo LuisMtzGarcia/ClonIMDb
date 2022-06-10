@@ -33,15 +33,18 @@
               </a>
             </div>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
-              <a href="{% url 'users:login' %}"
-                class="btn btn-lg btn-primary px-4 gap-3"
-                role="button">
-                Inicia sesión
-              </a>
-              <a href="{% url 'users:registro' %}"
-                class="btn btn-lg btn-primary px-4 gap-3">
-                Registrate
-              </a>
+              {% if user.is_authenticated %}
+              {% else %}
+                <a href="{% url 'users:login' %}"
+                  class="btn btn-lg btn-primary px-4 gap-3"
+                  role="button">
+                  Inicia sesión
+                </a>
+                <a href="{% url 'users:registro' %}"
+                  class="btn btn-lg btn-primary px-4 gap-3">
+                  Registrate
+                </a>
+              {% endif %}
             </div>
         </div>
       </div>
