@@ -55,6 +55,38 @@ def pelicula(request, pelicula_id):
                 'favFlag': favFlag}
     return render(request, 'appIMDb/pelicula.html', context)
 
+def peliculasRating(request):
+    """Muestra todas las peliculas ordenadas por su Rating, 
+        en orden de mayor a menor."""
+
+    peliculas = Pelicula.objects.order_by('titulo')
+
+    # Dict para almacenar las peliculas junto a sus calificaciones.
+    calificaciones = {}
+
+    for pelicula in peliculas:
+        calificaciones[pelicula] = 0
+        calificacion = 0
+        reviews = pelicula.review_set.order_by('-fecha')
+        for review in reviews:
+            calificacion += review.calificacion
+        if len(reviews) > 0:
+            calificaciones[pelicula] = calificacion / len(reviews)
+        else:
+            calificaciones[pelicula] = 0
+
+    # Organiza el dict de mayor a menor calificacion.
+    sortedCalificaciones = dict(sorted(calificaciones.items(),
+                                        key=lambda item: item[1],
+                                        reverse=True))
+
+    peliculasCalificaciones = sortedCalificaciones.keys()
+
+    context = {'peliculas': peliculasCalificaciones}
+    return render(request, 'appIMDb/peliculasRating.html', context)
+
+
+
 def generos(request):
     """Muestra todos los generos de peliculas disponibles."""
 

@@ -12,6 +12,9 @@ urlpatterns = [
     path('peliculas/', views.peliculas, name='peliculas'),
     # Pagina detallada para una pelicula individual.
     path('peliculas/<int:pelicula_id>/', views.pelicula, name='pelicula'),
+    # Pagina que muestra todas las peliculas ordenadas por calificacion, de mayor
+    # a menor.
+    path('peliculas/rating', views.peliculasRating, name='peliculasRating'),
     # Pagina que muestra todos los generos.
     path('generos/', views.generos, name='generos'),
     # Pagina que muestra todas las peliculas de un genero.
