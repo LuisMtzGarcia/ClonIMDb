@@ -16,7 +16,7 @@ Se crea este Fork con el fin de continuar el proyecto sin modificar el repositor
 - [ ] Estilizar formulario de Admin.
 - [x] Estilizar Landing Page.
 - [x] Estilizar formulario de registro de Usuario.
-- [ ] Estilizar pagina de inicio de sesion.
+- [x] Estilizar pagina de inicio de sesion.
 
 # Caracteristicas
 
