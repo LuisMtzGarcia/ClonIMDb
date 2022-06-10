@@ -8,13 +8,63 @@
   <body>
     {% extends "appIMDb/base.html" %}
 
+    {% block page_header %}
+
+        <h1 class="display-2">
+            <div class="text-center fw-bold">
+                Regístrate
+            </div>
+        </h1>
+
+    {% endblock page_header %}
+
     {% block content %}
 
         <form method="post" action="{% url 'users:registro' %}">
             {% csrf_token %}
-            {{ form.as_p }}
 
-            <button name="submit">Registrate</button>
+            {{ form.non_fields_errors }}
+            <div class="mb-3">
+                {{ form.username.errors }}
+                <label for="{{ form.username.id_username }}" class="form-label">
+                  Nombre de usuario:
+                </label>
+                {{ form.username }}
+                <br>
+                <small class="form-text">
+                  150 caracteres o menos. Solo letras, números y @/./+/-/_.
+                </small>
+            </div>
+
+            <div class="mb-3">
+              {{ form.password1.errors }}
+              <label for="{{ form.password1.id_password1 }}" class="form-label">
+                Contraseña:
+              </label>
+              {{ form.password1 }}
+              <br>
+              <small class="form-text">
+                <ul>
+                  <li>No puede ser muy similar a tus otros datos personales.</li>
+                  <li>Minomo de 8 caracteres.</li>
+                  <li>No puede ser enteramente numérica.</li>
+                </ul>
+              </small>
+            </div>
+
+            <div class="mb-3">
+              {{ form.password2.errors }}
+              <label for="{{ form.password1.id_password2 }}" class="form-label">
+                Confirma tu contraseña:
+              </label>
+              {{ form.password2 }}
+              <br>
+              <small class="form-text">
+                Ingrese la misma contraseña que antes, para verificación.
+              </small>
+            </div>
+
+            <button name="submit" class="btn btn-success">Regístrate</button>
             <input type="hidden" name="next" value="{% url 'appIMDb:index' %}">
         </form>
 
