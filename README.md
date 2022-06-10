@@ -15,7 +15,7 @@ Se crea este Fork con el fin de continuar el proyecto sin modificar el repositor
 - [ ] Implementar formulario para registrar Peliculas como Admin.
 - [ ] Estilizar formulario de Admin.
 - [x] Estilizar Landing Page.
-- [ ] Estilizar formulario de registro de Usuario.
+- [x] Estilizar formulario de registro de Usuario.
 - [ ] Estilizar pagina de inicio de sesion.
 
 # Caracteristicas
