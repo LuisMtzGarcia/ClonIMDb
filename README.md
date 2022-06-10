@@ -20,7 +20,7 @@ Se crea este Fork con el fin de continuar el proyecto sin modificar el repositor
 
 # Caracteristicas
 
-Esta WebApp que cumple con las siguientes caracteristicas:
+Esta WebApp cumple con las siguientes caracteristicas:
 
 * **Mostrar un listado de todas las peliculas en el sitio**:
     Se muestra una lista de todas las peliculas disponibles, cada elemento de la lista es un link a una pagina con los detalles de la pelicula.
